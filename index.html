@@ -330,6 +330,7 @@ h2.wide{max-width:30ch}
     <ul>
       <li><a href="#problem">Problem</a></li>
       <li><a href="#solution">Solution</a></li>
+      <li><a href="#demo">Demo</a></li>
       <li><a href="#team">Team</a></li>
       <li><a href="#why-now">Why now</a></li>
       <li><a href="#market">Market</a></li>
@@ -526,6 +527,19 @@ h2.wide{max-width:30ch}
         <p>Simulation-only start-ups sell predictions they never test on real materials. We measure, model, design and build in one place, so every experiment feeds the next.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="section dark" id="demo">
+  <div class="wrap">
+    <span class="kicker">Demo</span>
+    <h2>A trained skyrmion network predicting the next word</h2>
+    <p class="lede">A micromagnetic simulation of a three-layer SkyNet lattice. Each word of an unseen sentence is played into the device as a spin-wave pulse. The waves ripple through 93 N&eacute;el skyrmions, and the trained lattice steers them so the output pads for the correct next word light up. The lattice itself is what learns: its local magnetic properties are trained by exact backpropagation through the full magnetisation dynamics.</p>
+    <div class="media">
+      <video id="demovid" muted loop playsinline controls preload="metadata" poster="assets/SkyNet_demo_poster.jpg" aria-label="Simulation of a trained skyrmion network predicting the next word of a sentence"><source src="assets/SkyNet_demo.mp4" type="video/mp4">Your browser does not support video. <a href="assets/SkyNet_demo.mp4">Download the animation</a>.</video>
+    </div>
+    <p class="media-cap">On unseen sentences from a toy 12-word grammar, the trained network predicts 62% of next words, against 46% for a bigram model and 64% for the best possible predictor, and gets right every word that needs three words of memory. <a href="assets/SkyNet_demo.gif" download>Download GIF</a></p>
+    <p class="media-cap">Simulation, not a measurement of hardware performance.</p>
   </div>
 </section>
 
@@ -781,7 +795,7 @@ h2.wide{max-width:30ch}
   })();
 
   /* autoplay videos only when visible */
-  ['instvid','principlesvid'].forEach(function(id){
+  ['instvid','principlesvid','demovid'].forEach(function(id){
     var v=document.getElementById(id); if(!v) return;
     if(reduce){ v.controls=true; return; }
     var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ var p=v.play(); if(p&&p.catch)p.catch(function(){v.controls=true;}); } else v.pause(); }); },{threshold:.25});
